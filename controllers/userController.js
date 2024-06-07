@@ -25,7 +25,7 @@ module.exports = {
         .lean();
 
       if (!user) {
-        return res.status(404).json({ message: 'No student with that ID' });
+        return res.status(404).json({ message: 'No user with that ID' });
       }
 
       res.json({
@@ -52,7 +52,7 @@ module.exports = {
       const user = await User.findOneAndRemove({ _id: req.params.userId });
 
       if (!user) {
-        return res.status(404).json({ message: 'No such student exists' })
+        return res.status(404).json({ message: 'No such user exists' })
       }
 
     //   const course = await Course.findOneAndUpdate(
