@@ -17,7 +17,7 @@ module.exports = {
       return res.status(500).json(err);
     }
   },
-  // Get a single student
+  // Get a single user
   async getSingleUser(req, res) {
     try {
       const user = await User.findOne({ _id: req.params.userId })
@@ -37,7 +37,7 @@ module.exports = {
       return res.status(500).json(err);
     }
   },
-  // create a new student
+  // create a new user
   async createUser(req, res) {
     try {
       const user = await User.create(req.body);
@@ -46,7 +46,7 @@ module.exports = {
       res.status(500).json(err);
     }
   },
-  // Delete a student and remove them from the course
+  // Delete a user
   async deleteUser(req, res) {
     try {
       const user = await User.findOneAndRemove({ _id: req.params.userId });
