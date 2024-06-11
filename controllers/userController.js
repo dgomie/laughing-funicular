@@ -74,46 +74,49 @@ module.exports = {
     }
   },
 
-  // Add an assignment to a student
-//   async addAssignment(req, res) {
-//     try {
-//       console.log('You are adding an assignment');
-//       console.log(req.body);
-//       const student = await Student.findOneAndUpdate(
-//         { _id: req.params.studentId },
-//         { $addToSet: { assignments: req.body } },
-//         { runValidators: true, new: true }
-//       );
+  // Add an friend to a user
+  async addFriend(req, res) {
+    try {
+      // console.log('You are adding a friend');
+      console.log('User ID:', req.params.userId);
+      console.log('Friend ID:', req.params.friendId);
+      const user = await User.findOneAndUpdate(
+        { _id: req.params.userId },
+        { $addToSet: { friends: req.params.friendId } },
+        { runValidators: true, new: true }
+      );
 
-//       if (!student) {
-//         return res
-//           .status(404)
-//           .json({ message: 'No student found with that ID :(' })
-//       }
+      console.log(user)
 
-//       res.json(student);
-//     } catch (err) {
-//       res.status(500).json(err);
-//     }
-//   },
-//   // Remove assignment from a student
-//   async removeAssignment(req, res) {
-//     try {
-//       const student = await Student.findOneAndUpdate(
-//         { _id: req.params.studentId },
-//         { $pull: { assignment: { assignmentId: req.params.assignmentId } } },
-//         { runValidators: true, new: true }
-//       );
+      if (!user) {
+        return res
+          .status(404)
+          .json({ message: 'No user found with that ID :(' })
+      }
 
-//       if (!student) {
-//         return res
-//           .status(404)
-//           .json({ message: 'No student found with that ID :(' });
-//       }
+      res.json(user);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  },
+//   // Remove friend from a user
+  async removeFriend(req, res) {
+    try {
+      const user = await User.findOneAndUpdate(
+        { _id: req.params.userId },
+        { $pull: { friends: { _id: req.params.friendId } } },
+        { runValidators: true, new: true }
+      );
 
-//       res.json(student);
-//     } catch (err) {
-//       res.status(500).json(err);
-//     }
-//   },
+      if (!user) {
+        return res
+          .status(404)
+          .json({ message: 'No user found with that ID :(' });
+      }
+
+      res.json(user);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  },
 };
