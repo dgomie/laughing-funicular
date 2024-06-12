@@ -5,32 +5,27 @@
  [Description](#description)  
  [Installation](#installation)  
  [Usage](#usage)   
- [Video Walkthrough](#video-walkthrough)   
- [Contributions](#contributions)  
+ [Video Walkthrough](#video-walkthrough)    
  [Tests](#tests)  
  [Questions](#questions)  
  [License](#license)
 
 ## Description
 
-This is project is the backend for an e-commerce website, built using Express.js and Sequelize ORM. It provides the necessary API routes for managing categories, products, and tags.
+This project is an API for a social network web application where users can share their thoughts, react to friends’ thoughts, and create a friend list. The API is built using Express.js for routing and MongoDB with the Mongoose ODM for database management.
 
 ## Installation
 
 1. Clone the repository.
-2. Run npm install to install dependencies.
-3. Create a .env file in the root directory and add the following variables:
-
 ```
-DB_NAME=your_database_name
-DB_USER=your_mysql_username
-DB_PASSWORD=your_mysql_password
+git clone git@github.com:dgomie/laughing-funicular.git
 ```
 
-4. Run the following commands to set up the database:
+2. Run npm install to install dependencies.  
+
+3. Run the following commands to set up the database with dummy users:
 
 ```
-npm run schema
 npm run seed
 ```
 
@@ -47,7 +42,7 @@ npm start
 Alternatively, if in development, run the command:
 
 ```
-npm run watch
+npm run dev
 ```
 
 The API will be accessible at http://localhost:3001.
@@ -55,10 +50,7 @@ The API will be accessible at http://localhost:3001.
 ## Video Walkthrough
 A video demonstration of the setup of this application and how to access the API routes can be found here:
 
-[Video Demo](https://drive.google.com/file/d/1f3Bel3NX12dO5Mru1oFFyy66Nf2y1vON/view?usp=drive_link)
-
-
-## Contributions
+[Video Walkthrough](https://drive.google.com/file/d/1f3Bel3NX12dO5Mru1oFFyy66Nf2y1vON/view?usp=drive_link)
 
 
 ## Tests
