@@ -29,7 +29,7 @@ git clone git@github.com:dgomie/laughing-funicular.git
 npm run seed
 ```
 
-<img src='./public/images/ecommerce-db.png' width=300>
+<img src='./public/images/seeding.png' width=300>
 
 ## Usage
 
