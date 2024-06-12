@@ -59,13 +59,13 @@ Use [Insomnia Core](https://insomnia.rest/) to test the API routes.
 
 1. Open Insomnia Core.
 2. Import the Insomnia Core workspace containing the API requests.
-3. Test the API requests for categories, products, and tags.
+3. Test the API requests for users, thoughts, and reactions.
 
-<img src='./public/images/get-all-products.png' width=450>  
-<img src='./public/images/get-single-product.png' width=450>  
-<img src='./public/images/create-product.png' width=450>  
-<img src='./public/images/update-product.png' width=450>  
-<img src='./public/images/delete-product.png' width=450>
+<img src='./public/images/get-all-users.png' width=450>  
+<img src='./public/images/add-friend.png' width=450>  
+<img src='./public/images/create-thought.png' width=450>  
+<img src='./public/images/update-thought.png' width=450>  
+<img src='./public/images/create-reaction.png' width=450>
 
 
 ## Questions
