@@ -54,6 +54,12 @@ module.exports = {
 
     await Thought.deleteMany({ userId: user._id });
 
+    await User.updateMany(
+      {}, // Filter (empty to match all documents)
+      { $pull: { friends: user._id } }, // Update
+      { multi: true } // Options (update multiple documents)
+    );
+
     res.json({ message: 'User successfully deleted' });
     } catch (err) {
       console.log(err);
