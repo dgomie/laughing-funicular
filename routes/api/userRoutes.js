@@ -13,7 +13,6 @@ const {
 router.route('/').get(getUsers).post(createUser);
 
 // /api/users/:userId
-//TODO Add PUT route
 router.route('/:userId').get(getSingleUser).delete(deleteUser).put(updateUser);
 
 // /api/users/:userID/friends
