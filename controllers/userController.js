@@ -1,6 +1,6 @@
 // ObjectId() method for converting studentId string into an ObjectId for querying database
 const { ObjectId } = require('mongoose').Types;
-const { User } = require('../models');
+const { User, Thought } = require('../models');
 
 
 module.exports = {
@@ -28,10 +28,7 @@ module.exports = {
         return res.status(404).json({ message: 'No user with that ID' });
       }
 
-      res.json({
-        user,
-        // grade: await grade(req.params.studentId),
-      });
+      res.json({user});
     } catch (err) {
       console.log(err);
       return res.status(500).json(err);
@@ -49,25 +46,15 @@ module.exports = {
   // Delete a user
   async deleteUser(req, res) {
     try {
-      const user = await User.findOneAndRemove({ _id: req.params.userId });
+      const user = await User.findOneAndDelete({ _id: req.params.userId });
 
-      if (!user) {
-        return res.status(404).json({ message: 'No such user exists' })
-      }
+    if (!user) {
+      return res.status(404).json({ message: 'No such user exists' })
+    }
 
-    //   const course = await Course.findOneAndUpdate(
-    //     { students: req.params.studentId },
-    //     { $pull: { students: req.params.studentId } },
-    //     { new: true }
-    //   );
+    await Thought.deleteMany({ userId: user._id });
 
-    //   if (!course) {
-    //     return res.status(404).json({
-    //       message: 'Student deleted, but no courses found',
-    //     });
-    //   }
-
-      res.json({ message: 'User successfully deleted' });
+    res.json({ message: 'User successfully deleted' });
     } catch (err) {
       console.log(err);
       res.status(500).json(err);
